@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/68401533/@react-native-firebase_app.iml" filepath="$PROJECT_DIR$/.idea/modules/68401533/@react-native-firebase_app.iml" group="ans/@react-native-firebase_app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1373522828/@react-native-firebase_auth.iml" filepath="$PROJECT_DIR$/.idea/modules/1373522828/@react-native-firebase_auth.iml" group="ans/@react-native-firebase_auth" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ans.iml" filepath="$PROJECT_DIR$/.idea/modules/ans.iml" group="ans" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="ans/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-305278733/react-native-firebase.iml" filepath="$PROJECT_DIR$/.idea/modules/-305278733/react-native-firebase.iml" group="ans/react-native-firebase" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/68401533/react-native-firebase_app.iml" filepath="$PROJECT_DIR$/.idea/modules/68401533/react-native-firebase_app.iml" group="ans/react-native-firebase_app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1373522828/react-native-firebase_auth.iml" filepath="$PROJECT_DIR$/.idea/modules/1373522828/react-native-firebase_auth.iml" group="ans/react-native-firebase_auth" />
+    </modules>
+  </component>
+</project>
