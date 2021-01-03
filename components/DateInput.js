@@ -6,14 +6,14 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const DateInput = ({titleValue, iconType, ...rest}) => {
   return (
+    <TouchableOpacity  {...rest}>
     <View style={styles.inputContainer}>
       <View style={styles.iconStyle}>
         <AntDesign name={iconType} size={25} color="#666" />
       </View>
-      <TouchableOpacity  {...rest}>
         <Text style={styles.buttonText}>{titleValue}</Text>
-      </TouchableOpacity>
     </View>
+    </TouchableOpacity>
   );
 };
 

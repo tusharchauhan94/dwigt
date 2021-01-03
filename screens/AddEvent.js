@@ -36,6 +36,7 @@ const AddEvent = ({navigation}) => {
       case 2: _setStartTime();break;
       case 3: _setEndDate();break;
       case 4: _setEndTime();break;
+      default: console.log("Wrong Type!!!");break;
     };
   });
 
