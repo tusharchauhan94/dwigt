@@ -192,12 +192,12 @@ dependencies {
     implementation "com.google.firebase:firebase-analytics"
     implementation "com.google.firebase:firebase-auth"
     //Added for notifications
-    /*implementation "com.google.android.gms:play-services-base:17.2.1"
+    implementation "com.google.android.gms:play-services-base:17.2.1"
     implementation "com.google.firebase:firebase-core:16.0.8"
     implementation "com.google.firebase:firebase-config:+"
     implementation "com.google.firebase:firebase-database:+"
     implementation "com.google.firebase:firebase-messaging:20.1.5"
-    */
+    
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
     }
@@ -228,3 +228,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply plugin: 'com.google.gms.google-services'

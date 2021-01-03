@@ -4,8 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import io.invertase.firebase.RNFirebasePackage;
 
-import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingPackage;
+//import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingPackage;
 import com.marianhello.bgloc.react.BackgroundGeolocationPackage;
 import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 import com.sha256lib.Sha256Package;
@@ -15,13 +16,15 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import org.reactnative.maskedview.RNCMaskedViewPackage;
-import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
-import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
+//import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
+//import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
 
-//import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
-//import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
-//import io.invertase.firebase.database.RNFirebaseDatabasePackage;
-//import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
+import io.invertase.firebase.database.RNFirebaseDatabasePackage;
+import io.invertase.firebase.RNFirebasePackage;
+//import io.invertase.firebase.auth.RNFirebasePackage;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -44,9 +47,10 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
-          //packages.add(new RNFirebaseMessagingPackage());
-          //packages.add(new RNFirebaseNotificationsPackage());
-          //packages.add(new RNFirebaseDatabasePackage());
+          packages.add(new RNFirebaseMessagingPackage());
+          packages.add(new RNFirebaseNotificationsPackage());
+          packages.add(new RNFirebaseDatabasePackage());
+          packages.add(new RNFirebaseAuthPackage());
 
           return packages;
         }

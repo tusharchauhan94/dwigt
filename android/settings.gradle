@@ -1,6 +1,8 @@
 rootProject.name = 'ans'
 include ':react-native-firebase'
 project(':react-native-firebase').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-firebase/android')
+include ':react-native-firebase'
+project(':react-native-firebase').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-firebase/android')
 include ':@react-native-firebase_messaging'
 project(':@react-native-firebase_messaging').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-firebase/messaging/android')
 include ':@mauron85_react-native-background-geolocation-common'
@@ -25,8 +27,6 @@ include ':@react-native-community_masked-view'
 project(':@react-native-community_masked-view').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/masked-view/android')
 include ':@react-native-firebase_app'
 project(':@react-native-firebase_app').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-firebase/app/android')
-include ':@react-native-firebase_auth'
-project(':@react-native-firebase_auth').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-firebase/auth/android')
 include ':react-native-firebase'
 project(':react-native-firebase').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-firebase/android')
 include ':react-native-firebase'
