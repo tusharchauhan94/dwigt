@@ -1,4 +1,0 @@
-# Referenced at E:\Projects\advancedapps\ans\android\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:30
--keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at E:\Projects\advancedapps\ans\android\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:30
--keep class com.advancedapps.ans.MainApplication { <init>(); }
