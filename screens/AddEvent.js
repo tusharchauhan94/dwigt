@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {View, Button, Platform} from 'react-native';
+import {View, Button, Platform, StyleSheet, Text} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+//import CheckBox from '@react-native-community/checkbox';
+import {CheckBox, ButtonGroup} from 'react-native-elements';
 import DateInput from '../components/DateInput';
 import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
+import { ToggleButton } from 'react-native-paper';
+
 
 const AddEvent = ({navigation}) => {
   const [date, setDate] = useState(new Date(1598051730000));
@@ -14,9 +18,12 @@ const AddEvent = ({navigation}) => {
   const [endtime, setEndTime] = useState("End Time");
   const [eventname, setEventName] = useState("Event Name");
   const [eventdesc, setEventDesc] = useState("Description");
+  const [isendSelected, setisendSelected] = useState(false);
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
-
+  const buttons = ["S","M","T","W","T","F","S"];
+  const [selectedIndexes, setSelectedIndexes] = useState([]);
+  const [isRepeat, setisRepeat] = useState(false);
   const onChange = (event, selectedDate) => {
     console.log("Event = " + selectedDate)
     const currentDate = selectedDate || date;
@@ -58,7 +65,7 @@ const AddEvent = ({navigation}) => {
   return date.getHours() + ":" + date.getMinutes();
   };
 
-
+ 
   const _setStartDate = () => {
 //    console.log(formatDate());
     setStartDate(formatDate());
@@ -77,6 +84,11 @@ const AddEvent = ({navigation}) => {
     setEndTime(formatTime())
   }
 
+  const updateIndex = (selectedIndexes) => {
+    setSelectedIndexes(selectedIndexes);
+    console.log("Selected Indexes = ",selectedIndexes)
+
+  }
   return (
     <View>
       <View>
@@ -110,14 +122,46 @@ const AddEvent = ({navigation}) => {
       />
       </View>
       <View>
+      <CheckBox
+        title = "No End Date"
+        checked={isendSelected}
+        //checkedIcon='dot-circle-o'
+        //uncheckedIcon='circle-o'
+        onPress={() => {setisendSelected(!isendSelected)}}
+      />
+      </View>
+      <View style={styles.checkboxContainer}>
+      <ButtonGroup
+        onPress={updateIndex}
+        selectedIndexes={selectedIndexes}
+        buttons={buttons}
+        selectMultiple={true}
+        disabled={!isendSelected}
+        containerStyle={{width: 280, height:47}}
+      />
+      <CheckBox
+        title = "Repeat"
+        checked={isRepeat}
+        //checkedIcon='dot-circle-o'
+        //uncheckedIcon='circle-o'
+        style={styles.checkbox}
+        disabled={!isendSelected}
+        //size="20"
+        textStyle={styles.label}
+        onPress={() => {setisRepeat(!isRepeat)}}
+      />
+      </View>
+      <View>
       <DateInput
-        titleValue={enddate}
+        disabled={isendSelected}
+        titleValue={(isendSelected)? "N/A":enddate}
         iconType="calendar"
         onPress={() => {selectType(3);showDatepicker();}}
       />
       <View>
       <DateInput
-        titleValue={endtime}
+        disabled={isendSelected}
+        titleValue={(isendSelected)? "N/A":endtime}
         iconType="clockcircle"
         onPress={() => {selectType(4);showTimepicker();}}
       />
@@ -142,4 +186,21 @@ const AddEvent = ({navigation}) => {
     </View>
   );
 };
+
+
+const styles = StyleSheet.create({
+   checkboxContainer: {
+    flexDirection: "row",
+    //marginBottom: 20,
+  },
+  checkbox: {
+    height: 10,
+  
+  },
+  label: {
+    margin: 0,
+  },
+
+});
+
 export default AddEvent;

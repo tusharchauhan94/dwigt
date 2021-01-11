@@ -136,7 +136,7 @@ class MyStatus extends Component{
     _retrieveIndex = async () => {
       console.log("Retreiving Index");
       try {
-        const value = await AsyncStorage.getItem('MyIndex');
+        const value = await AsyncStorage.getItem('MyIndex'); 
         if (value !== null) {
           // We have data!!
           this._updateStyle(value);
@@ -150,8 +150,8 @@ class MyStatus extends Component{
 
   onPressButton(status, index){
 
-      Alert.alert("Status Update", "Your status is set to " + status);
       this._updateStyle(index);
+      Alert.alert("Status Update", "Your status is set to " + status);
       this._storeStatus(status);
       this._storeIndex(index);
     }
