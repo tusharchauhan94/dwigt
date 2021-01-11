@@ -10,7 +10,7 @@ import { ToggleButton } from 'react-native-paper';
 
 
 const AddEvent = ({navigation}) => {
-  const [date, setDate] = useState(new Date(1598051730000));
+  const [date, setDate] = useState(new Date(Date.now()));
   const [type, selectType] = useState(0);
   const [startdate, setStartDate] = useState("From Date");
   const [enddate, setEndDate] = useState("End Date");
