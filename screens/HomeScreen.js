@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import {
   FlatList,
   SafeAreaView,
@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { List, Divider } from 'react-native-paper';
+import { AuthContext } from '../navigation/AuthProvider';
+
 
 const DATA = [
   {
@@ -66,6 +68,8 @@ const Item = ({ item, style }) => (
 );
 
 const HomeScreen = ({navigation}) => {
+  const {userId} = useContext(AuthContext);
+  console.log(userId)
   const renderItem = ({ item }) => {
     return (
       <Item
