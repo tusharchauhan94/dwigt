@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { AuthContext } from '../navigation/AuthProvider';
-import { sha256 } from 'react-native-sha256';
+
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState();
@@ -41,11 +41,6 @@ const LoginScreen = ({navigation}) => {
           buttonTitle="Sign In"
           onPress={() => {
           login(email, password);
-          //setUserId(email);
-          //sha256(email).then((hash) => {setUserId(hash);})
-            //                 .catch((error) => console.log(error));
-          //console.log("Login User Hash = "+userId);
-
         }
       }
       />

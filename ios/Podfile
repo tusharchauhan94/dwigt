@@ -36,6 +36,8 @@ target 'ans' do
 
   pod 'RNCCheckbox', :path => '../node_modules/@react-native-community/checkbox'
 
+  pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
+
   target 'ansTests' do
     inherit! :complete
     # Pods for testing
