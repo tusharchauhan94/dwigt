@@ -23,7 +23,7 @@ const getAvatarInitials = (textString) => {
 const ListItem = (props) => {
   const [isSelected, setisSelected] = useState(false);
   
-  function onPress(item, setID) {
+  function onPress() {
     setisSelected(!isSelected);  
 }
   const shouldComponentUpdate = () => {
@@ -31,15 +31,31 @@ const ListItem = (props) => {
   };
   useEffect(() => {
     if(isSelected){
-        setID(item.phoneNumbers[0].number);
-        console.log("ID Set to = ", (item.displayName));
+        var key = item.phoneNumbers[0].number;
+       // console.log("Key = ", typeof(contact_id));
+        //console.log(props);
+        let new_id = {...contact_id, [key]:"Selected"}
+        //setID(new_id);
+        if (contact_id[key] === undefined){
+            console.log("----------HERE----------", Object.keys(contact_id))
+            addContactId(new_id);
+        }
+        //console.log("NEW ID = ", new_id);
+        console.log("ID Set to = ", (contact_id));
     }    
+    else{
+        var key = item.phoneNumbers[0].number;
+        if (contact_id[key] != undefined){ 
+            delete contact_id[key];
+        }
+    }
   });
-  const {item, onLongPress, setID} = props;
+  
+  const {item, onLongPress, addContactId, contact_id} = props;
  
   return (
     <View>
-      <TouchableOpacity onLongPress={() => onLongPress(item)} onPress = {() => {onPress(item, setID);}}>
+      <TouchableOpacity onLongPress={() => onLongPress(item)} onPress = {() => {onPress();}}>
         <View style={styles.itemContainer}>
           <View style={styles.leftElementContainer}>
             <Avatar

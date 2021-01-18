@@ -22,7 +22,8 @@ import ListItem from '../components/ListItem';
 
 function AddContact() {
     let [contacts, setContacts] = useState([]);
-    const [ID, setID] = useState();
+    const [contact_id, setID] = useState({});
+
     useEffect(() => {
         if (Platform.OS === 'android') {
             PermissionsAndroid.request(
@@ -50,6 +51,10 @@ function AddContact() {
         Contacts.getAll().then((contacts) => {      
             setContacts(contacts);
         });
+    }
+
+    function addContactId(new_id){
+        setID(new_id);
     }
 
     function search(text) {
@@ -104,7 +109,9 @@ function AddContact() {
                                 key={contact.item.recordID}
                                 item={contact.item}
                                 onLongPress={openContact}
-                                setID={setID} />
+                                addContactId={addContactId}
+                                contact_id={contact_id}
+                                 />
                         );
                     } }
                     keyExtractor={(item) => item.recordID} />
@@ -112,7 +119,7 @@ function AddContact() {
                     <FormButton
                         buttonTitle="Add Contact"
                         onPress={() => {
-                        console.log("ID = ", ID);
+                        console.log("ID = ", contact_id);
                   }}/>
                 </View>
             </View>

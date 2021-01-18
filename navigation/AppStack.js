@@ -69,7 +69,7 @@ const AppStack = () => {
                 headerleft: "null",
                 headerRight: () => (
                                     <View>
-                                      <DropdownButton actions={['MyStatus', 'Profile', 'Add Friend',
+                                      <DropdownButton actions={['MyStatus', 'Profile', 'Add Contact',
                                       'Add Event', 'Logout']}
                                       onPress={(eventName, index)=> {
                                         return onPopupEvent(eventName, index, navigation, logout);
@@ -101,30 +101,9 @@ const AppStack = () => {
               })
             }
       />
-      <Stack.Screen name='AddFriend' component={AddFriend}
-       options={({navigation}) => ({
-                headerTitle: () => <Text style={styles.input}> Add Friend </Text>,
-                headerTintColor: "royalblue",
-                headerStyle: {
-                              backgroundColor: 'royalblue'
-                              },
-                headerLeft: () => (
-                  <View style={{marginLeft: 10}}>
-                    <FontAwesome.Button
-                      name="long-arrow-left"
-                      size={20}
-                      backgroundColor="#f9fafd"
-                      color="#000"
-                      onPress={() => navigation.navigate('Home')}
-                    />
-                  </View>
-                ),
-              })
-            }
-      />
        <Stack.Screen name='AddContact' component={AddContact}
        options={({navigation}) => ({
-                headerTitle: () => <Text style={styles.input}> Add Friend </Text>,
+                headerTitle: () => <Text style={styles.input}> Add Contact </Text>,
                 headerTintColor: "royalblue",
                 headerStyle: {
                               backgroundColor: 'royalblue'
