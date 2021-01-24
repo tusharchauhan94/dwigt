@@ -6,10 +6,10 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import DropdownButton from '../components/DropdownButton';
 import { AuthContext } from '../navigation/AuthProvider';
 import MyStatus from '../screens/MyStatus';
-import AddFriend from '../screens/AddFriend';
 import AddContact from '../screens/AddContact';
 import AddEvent from '../screens/AddEvent';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import EventView from '../screens/EventView';
 
 
 
@@ -32,8 +32,10 @@ function onPopupEvent(eventName, index, navigation, logout) {
      if (index === 2) onAddFriend(navigation)
      else
        if (index === 3) onAddEvent(navigation)
-       else
-        logout()
+       else 
+        if(index == 4) onEventView(navigation)
+        else
+          logout()
 
   }
 
@@ -43,12 +45,17 @@ function onAddFriend(navigation){
 
 }
 
+function onEventView(navigation){
+  console.log("Viewing Events");
+  navigation.navigate("EventView");
+
+}
+
 function onAddEvent(navigation) {
   navigation.navigate("AddEvent");
 }
 
 function onMyStatus(navigation) {
-
   navigation.navigate("MyStatus", {
               name: "MyStatus",
             })
@@ -70,7 +77,7 @@ const AppStack = () => {
                 headerRight: () => (
                                     <View>
                                       <DropdownButton actions={['MyStatus', 'Profile', 'Add Contact',
-                                      'Add Event', 'Logout']}
+                                      'Add Event', 'View Events', 'Logout']}
                                       onPress={(eventName, index)=> {
                                         return onPopupEvent(eventName, index, navigation, logout);
                                       }}
@@ -137,6 +144,27 @@ const AppStack = () => {
                       backgroundColor="#f9fafd"
                       color="#000"
                       onPress={() => navigation.navigate('Home')}
+                    />
+                  </View>
+                ),
+              })
+            }
+      />
+      <Stack.Screen name='EventView' component={EventView}
+       options={({navigation}) => ({
+                headerTitle: () => <Text style={styles.input}> View Events </Text>,
+                headerTintColor: "royalblue",
+                headerStyle: {
+                              backgroundColor: 'royalblue'
+                              },
+                headerLeft: () => (
+                  <View style={{marginLeft: 10}}>
+                    <FontAwesome.Button
+                      name="long-arrow-left"
+                      size={20}
+                      backgroundColor="#f9fafd"
+                      color="#000"
+                      
                     />
                   </View>
                 ),
